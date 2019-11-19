@@ -1,0 +1,3 @@
+1. En el gráfico de simulink, especificamente en el PID se empezaró a tantear el P con el I y el D en 0, además del step en cero  (el primer campo).
+2. Luego lo hicimos con el LGR con locus, y tocamos donde se insersecta con el eje Y por arriba, vemos el polo y seleccionamos el valor imaginario, ese valor imaginario es w
+3. Luego aplicamos la formula T = 2*pi/ w y obtenemos T = tsr
