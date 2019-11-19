@@ -18,18 +18,22 @@ while band
     switch selection
 
         case '1'
-            ej1UnMuestreadoresLA
+            ej1UnMuestreadorLA
             input('Pulse tecla para continuar.')
+            
         case '2'
             ej1DosMuestreadoresLA
             input('Pulse tecla para continuar.')
+            
         case '3'
-            ej1UnMuestreadoresLC
+            ej1UnMuestreadorLC
             input('Pulse tecla para continuar.')
+            
         case '4'
             disp('NOTA: Recuerde que para ')
             ej1DosMuestreadoresLC
             input('Pulse tecla para continuar.')
+            
         case '5'
             disp('Saliendo de la sección 2. Análisis de estabilidad')
             band = 0;
