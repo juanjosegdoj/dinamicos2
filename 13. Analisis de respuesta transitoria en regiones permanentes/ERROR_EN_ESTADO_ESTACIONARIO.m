@@ -1,10 +1,12 @@
 % ERROR EN ESTADO ESTACIONARIO 
-clc
-disp('---    ERROR EN ESTADO ESTACIONARIO    ---')
-disp(' ');
-disp('SELECCIONE PRESIONANDO :'); 
-disp(' 1: PARA FUNCION DE LA PLANTA EN TF '); 
-disp(' 2: PARA FUNCION DE LA PLANTA EN ZPK '); 
+limpiar
+disp('----------------------------------------------------------------------')
+disp('---                  ERROR EN ESTADO ESTACIONARIO                  ---')
+disp('----------------------------------------------------------------------')
+disp('---  SELECCIONE PRESIONANDO :                                      ---')
+disp('---        1: PARA FUNCION DE LA PLANTA EN TF                      ---'); 
+disp('---        2: PARA FUNCION DE LA PLANTA EN ZPK                     ---');
+disp('----------------------------------------------------------------------')
 n=input('SELECCIONE LA OPCION : '); 
 disp(' '); 
 switch n 

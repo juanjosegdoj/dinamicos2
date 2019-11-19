@@ -1,3 +1,7 @@
+limpiar
+disp('----------------------------------------------------------------------')
+disp('--- 9. Estabilidad de un sistema discreto                          ---')
+disp('----------------------------------------------------------------------')
 T = input('Ingrese el tiempo de muestreo T= ');
 num = input('Ingrese el numerador de la planta num= ');
 den = input('Ingrese el denominador de la planta den= ');

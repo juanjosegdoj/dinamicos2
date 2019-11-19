@@ -9,4 +9,6 @@ addpath('../7. Control Sistemas Discretos/1. Funcion de transferencia discreta (
 addpath('../8. Sistemas de control Digital/');
 addpath('../9. Estabilidad de un sistema discreto/');
 addpath('../10. Taller1/');
-addpath('../11. Criterio de Jury para estabilidad Stm discreto/');
+addpath('../11. Criterio de Jury para estabilidad Stm discreto/')
+addpath('../12. Método de ROOTH-HURTWITZ modificado/');
+addpath('../13. Analisis de respuesta transitoria en regiones permanentes/');

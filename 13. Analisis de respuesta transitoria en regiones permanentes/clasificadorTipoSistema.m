@@ -1,6 +1,6 @@
-disp(' ');
-disp('GRAFICA DE SISTEMAS AMORTIGUADOS')
-disp(' ');
+disp('----------------------------------------------------------------------')
+disp('---                GRAFICA DE SISTEMAS AMORTIGUADOS                ---')
+disp('----------------------------------------------------------------------')
 Wn = input('Frecuencia natural amortiguada: Wn= ');
 Z = input('Factor de amortiguamiento: Z= ');
 num = Wn^2;

@@ -1,7 +1,7 @@
 % clc
 % disp('   ')
 % disp('   ____________________________________________________________________________')
-% disp('                                    LGR con P,PI,PD,PID                         ') 
+% disp('                                    LGR con P, PI,PD,PID                         ') 
 % disp('   ____________________________________________________________________________')
 % 
 % num = input('Ingrese el numerador : num = ');
@@ -10,7 +10,7 @@
 % ts = input('Entre el valor de TS : ts = ');
 % poloslgrFdt2(num,den,mp,ts)
 
-function r=poloslgrFdt(num, den, mp, ts)
+function r = poloslgrFdt(num, den, mp, ts)
     s = tf('s');
     
     g = tf(num,den)
@@ -25,7 +25,7 @@ function r=poloslgrFdt(num, den, mp, ts)
     %p
     disp('Comprobamos que los polos determinados pertenezcan al LGR rlocus');
     figure
-    rlocus(g); % para comprobar si se puede seguir con p
+    rlocus(g) % para comprobar si se puede seguir con p
     disp('Presione enter para continuar')
     pause
     
@@ -45,7 +45,6 @@ function r=poloslgrFdt(num, den, mp, ts)
     
     kp = dcgain(gk);
     essStep = 1 / (1 + kp)
-    essStepPorcentaje = round(essStep * 100)
     figure
     step(g, t)
     hold on
@@ -66,8 +65,7 @@ function r=poloslgrFdt(num, den, mp, ts)
     kp = dcgain(ggc);
     display(kp);
     essStep = 1 / (1 + kp)
-    essStepPorcentaje = round(essStep * 100);
-
+    
     ggclc = feedback(ggc, 1);
 
     step(ggclc, t)

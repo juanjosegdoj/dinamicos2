@@ -1,12 +1,14 @@
 %METODO DE JURY
 
 %Test de Jury para determinar la estabilidad de sistemas discretos:
-clc
-disp('ESTABILIDAD SEGUN METODO DE JURY ');
-disp('SELECCIONE PRESIONANDO :');
-disp(' 1: PARA FUNCION DE LA PLANTA EN TF ');
-disp(' 2: PARA FUNCION DE LA PLANTA EN ZPK ');
-disp(' 3: ECUACION CARACTERISTICA DEL SISTEMA');
+limpiar
+disp('----------------------------------------------------------------------')
+disp('--- 11. ESTABILIDAD SEGUN METODO DE JURY                           ---')
+disp('----------------------------------------------------------------------')
+disp('--- Seleccione presionando :                                       ---');
+disp('---        1: Para función de la planta en TF                      ---');
+disp('---        2: Para función de la planta en ZPK                     ---');
+disp('---        3: Ecuacuón característica del sistema                  ---');
 n=input('SELECCIONE LA OPCION : ');
 disp(' ');
 switch n

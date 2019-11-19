@@ -21,6 +21,16 @@ while 1
             fdt_discreta
         case '8'
             sistemaControlDigital
+        case '9'
+            estabStmDiscreto
+        case '10'
+            ejercicio1
+        case '11'
+            METODO_DE_JURY
+        case '12'
+            ROUTH_HURWITZ_MODIFICADO
+        case '13'
+            respTransMenu
             
         case 'SALIR'
             disp('Programa finalizado...')
