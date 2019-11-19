@@ -1,8 +1,8 @@
-%ANÃ?LISIS DE ESTABILIDAD MEDIANTE EL CRITERIO DE ROUT-HURWITZ
+%ANALISIS DE ESTABILIDAD MEDIANTE EL CRITERIO DE ROUT-HURWITZ
 % NOTA: Esta función admite variables
 function r=routh2(poli,eps)
     if(nargin < 2)
-        fprintf('\nError:NÃºmero insuficiente de argumentos.');
+        disp('Error: Numero insuficiente de argumentos.');
         return
     end
     dim=size(poli);                             
@@ -32,3 +32,8 @@ function r=routh2(poli,eps)
             r(i,j)=-det([r(i-2,1) r(i-2,j+1);r(i-1,1) r(i-1,j+1)])/r(i-1,1);
         end
     end
+    disp('-------------------------------')
+    disp('---     ARREGLO DE R-H      ---')
+    disp('-------------------------------')
+    disp('')
+    disp(r)

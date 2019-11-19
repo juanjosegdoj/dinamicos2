@@ -23,7 +23,7 @@ function r=routh(poli,eps)
     for i=3:coef
         if (all(r(i-1,:)==0))
             fprintf('\n   Se detecto una fila de ceros')
-            fprintf('\n Cuando en el arreglo de routh se detecta un afila de ceros, ')
+            fprintf('\n Cuando en el arreglo de routh se detecta una fila de ceros, ')
             fprintf('\n significa que el sistema posee 2 polos imaginarios puros que generan')
             fprintf('\n un stm vibratorio por lo cual el criterio de routh no es aplicable por cuanto no existe una establilidad absoluta')
             es_aplicable = 0;
@@ -80,6 +80,7 @@ function r=routh(poli,eps)
             end
         end
     end
+    disp('---------------------------------------------------')
     if es_aplicable
         if cambios == 0 && hay_ceros == 0
             disp('El sistema es estable');
@@ -92,9 +93,14 @@ function r=routh(poli,eps)
         end
     end
     disp('El numero de  cambios de signo y el número de polos que se localizan');
-    disp('\n en el semiplano derecho del pano complejo S son: ');
-
+    disp('en el semiplano derecho del pano complejo S son: ');
     disp(cambios);
+    disp('-------------------------------')
+    disp('---     ARREGLO DE R-H      ---')
+    disp('-------------------------------')
+    disp('')
+    disp(r)
+    
 
     % Instrucciones de uso
     % routh([1 3 4 6 15 21 10], 1)
