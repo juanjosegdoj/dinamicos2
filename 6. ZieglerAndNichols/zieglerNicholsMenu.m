@@ -8,7 +8,7 @@ while band
     disp('----------------------------------------------------------------------')
     disp('--- 1. Primer método de Z-N; Curva de Reacción                     ---')
     disp('--- 2. Segundo método de Z-N; Oscilación Continua                  ---')
-    disp('--- 3. Salir a MENÜ PRINCIPAL                                      ---')
+    disp('--- 3. Salir a MENU PRINCIPAL                                      ---')
     disp('----------------------------------------------------------------------')
 
     selection = strrep(input('Ingrese el número de la sección: ', 's'), ' ', '');
@@ -17,10 +17,10 @@ while band
 
         case '1'
             TABLA_1_METODO_z_n
-            input('Pulse tecla para continuar.')
+            input('Pulse ENTER para continuar.')
         case '2'
             TABLA_2_METODO_z_n
-            input('Pulse tecla para continuar.')
+            input('Pulse ENTER para continuar.')
         case '3'
             disp('Saliendo de la sección 2. Análisis de estabilidad')
             band = 0;

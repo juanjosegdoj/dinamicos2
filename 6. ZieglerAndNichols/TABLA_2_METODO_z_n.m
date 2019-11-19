@@ -1,10 +1,11 @@
+limpiar
 disp('----------------------------------------------------------------------')
 disp('--- 2. Segundo método de Z-N; Oscilación Continua                  ---')
 disp('----------------------------------------------------------------------')
 
-num = input('Ingrese el numerador en un corchetes: ');
-den = input('Ingrese el denominador en un corchetes: ');
-t_i = input('Ingresa el valor de tiempo(t): ');
+num = input('Ingrese el numerador en un corchete num= ');
+den = input('Ingrese el denominador en un corchete den= ');
+t_i = input('Ingresa el valor de tiempo t= ');
 
 sys = tf(num, den);
 
@@ -16,7 +17,7 @@ frec = abs(imag(min(a(real(a)>0)))); % Tomamos el valor imaginario mas pequeño d
  
 tcr = 2*pi/frec;
 
-tabla = [0.5*kcr 0 0;0.45*kcr 1.2/tcr 0;0.6*kcr 2/tcr 0.125*tcr]
+tabla = [0.5*kcr 0 0;0.45*kcr 1.2/tcr 0;0.6*kcr 2/tcr 0.125*tcr];
 
 t = 0:t_i/1000:t_i;
 
@@ -45,3 +46,9 @@ GpGc = series(Gp,Gc);
 GpGcLc= feedback(GpGc,1);
 step(GpGcLc, t)
 legend('PID')
+
+disp('-----------------------------------------------------')
+disp('---      Tabla Z-N Resultante. Kp | Ki | Kd       ---')
+disp('-----------------------------------------------------')
+disp(' ')
+tabla

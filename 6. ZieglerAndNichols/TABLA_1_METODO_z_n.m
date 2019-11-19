@@ -1,18 +1,20 @@
+limpiar
 disp('----------------------------------------------------------------------')
-disp('--- 1. Primer método de Z-N; Curva de Reacción                     ---')
+disp('---          1. Primer método de Z-N; Curva de Reacción            ---')
 disp('----------------------------------------------------------------------')
 
 % Ingresamos los parámetros.
 disp('ejemplo k = 1.778;  T = 2888.804;  L = 5;')
-k = input('Ingrese ganancia estática (K)');  %K = GANANCIA ESTÁTICA ;   %3.22;  %K = GANANCIA ESTÁTICA 
-T = input('Ingrese constane de tiempo (T)');  %2293.98;     % T = CONSTANTE DE TIEMPO
-L = input('Ingrese retardo (R)');  %180;     % RETAD0
+k = input('Ingrese ganancia estática K= ');  %K = GANANCIA ESTÁTICA ;   %3.22;  %K = GANANCIA ESTÁTICA 
+T = input('Ingrese constane de tiempo T= ');  %2293.98;     % T = CONSTANTE DE TIEMPO
+L = input('Ingrese retardo R= ');  %180;     % RETAD0
+t_i = input('Ingresa el valor de tiempo: t = ');
 
 % ------------- Creamos la planta -------------------------
 num = k;
 den = [T 1];
 gp = tf(num,den,'InputDelay', L);
-t=0:0.01:1000;
+t=0:0.01:t_i;
 step(gp,t)
 legend('Planta')
 figure
@@ -59,5 +61,8 @@ legend('Controlador P')
 
 % ------------- Creamos la TABLA 1 -------------------------
 mat = [T/(k*L) 0 0; (0.9*T)/(k*L) 0.3/L 0; (1.2*T)/(k*L) 1/(2*L) 0.5*L];
-
-disp(mat);
+disp('-----------------------------------------------------')
+disp('---      Tabla Z-N Resultante. Kp | Ki | Kd       ---')
+disp('-----------------------------------------------------')
+disp(' ')
+mat
