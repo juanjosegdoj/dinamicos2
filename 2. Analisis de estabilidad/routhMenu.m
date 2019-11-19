@@ -19,7 +19,8 @@ while band
             disp('(Ejemplo de Polinomio característico [1 3 4 6 15 21 10])');
             polinomio = input('Ingrese el polinomio característico= ');
             routh(polinomio, 1)
-            input('Pulse tecla para continuar.')
+            pause
+            disp('Pulse tecla para continuar.')
 
         case '2'
             syms x y z;
@@ -27,7 +28,8 @@ while band
             disp('Ejemplo de Polinomio característico = [x^2 3*y 4+x 6-z]');
             polinomio = input('Ingrese el polinomio característico= ');
             routh2(polinomio, 1)
-            input('Pulse tecla para continuar.')
+            pause
+            disp('Pulse ENTER para continuar.')
 
         case '3'
             disp('Saliendo de la sección 2. Análisis de estabilidad')

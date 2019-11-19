@@ -5,7 +5,7 @@
 
 function r=routh(poli,eps)
     if(nargin < 2)
-        fprintf('\nError:NÃºmero insuficiente de argumentos.');
+        fprintf('\nError:Numero insuficiente de argumentos.');
         return
     end
     es_aplicable = 1;
@@ -82,17 +82,17 @@ function r=routh(poli,eps)
     end
     if es_aplicable
         if cambios == 0 && hay_ceros == 0
-            fprintf('\n   El sistema es estable');
+            disp('El sistema es estable');
         end
         if cambios == 0 && hay_ceros == 1
-            fprintf('\n   El sistema es marginalmente estable');
+            disp('El sistema es marginalmente estable');
         end
         if cambios >= 1
-            fprintf('\n   El sistema es in-estable');
+            disp('El sistema es in-estable');
         end
     end
-    fprintf('\nEl numero de  cambios de signo y el número de polos que se localizan');
-    fprintf('\n en el semiplano derecho del pano complejo S son: ');
+    disp('El numero de  cambios de signo y el número de polos que se localizan');
+    disp('\n en el semiplano derecho del pano complejo S son: ');
 
     disp(cambios);
 
