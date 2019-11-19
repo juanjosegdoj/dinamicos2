@@ -2,7 +2,7 @@ limpiar
 disp('--------------------------------------------------------------------------------------')
 disp('--- 8. Sistemas de control Digital                                                 ---')
 disp('--------------------------------------------------------------------------------------')
-disp('---  Encontrar FDT en La LA y LC, dados los parámetros kp, ki, kdy la planta en z  ---')
+disp('---  Encontrar FDT en La LA y LC, dados los parámetros kp, ki, kdy la planta en Z  ---')
 disp('--------------------------------------------------------------------------------------')
 disp('---           k1 + k2*z^(-1) + k3*z^(-3)       donde k1 = kp + ki*T/2 + kd/T       ---')
 disp('--- G(pid) = -----------------------------           k2 = -kp + ki/2 - 2*kd/T      ---')
