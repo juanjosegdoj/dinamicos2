@@ -8,4 +8,4 @@ disp('----------------------------------------------------------------------')
 k = input('Entre la ganancia del sistema : k = ');
 num = input('Entre coeficientes del numerador : num = ');
 den = input('Entre coeficientes del denominador : den = ');
-reducir(k,num,den)
+reduccion_sistemas(k,num,den)
