@@ -2,7 +2,7 @@ limpiar
 disp('--------------------------------------------------------------------------------------')
 disp('--- 8. Sistemas de control Digital                                                 ---')
 disp('--------------------------------------------------------------------------------------')
-disp('--- Encontrar FDT en La LA y LC, dados los parámetros kp, ki, kd                   ---')
+disp('---  Encontrar FDT en La LA y LC, dados los parámetros kp, ki, kdy la planta en z  ---')
 disp('--------------------------------------------------------------------------------------')
 disp('---           k1 + k2*z^(-1) + k3*z^(-3)       donde k1 = kp + ki*T/2 + kd/T       ---')
 disp('--- G(pid) = -----------------------------           k2 = -kp + ki/2 - 2*kd/T      ---')
@@ -11,6 +11,9 @@ disp('---                                            y   Gp(z) = (1-z^(-1))*3{Gp
 disp('--------------------------------------------------------------------------------------')
 disp('--- Ejemplo:                                                                       ---')
 disp('---         T = 1; kp = 1; ki = 0.2; kd = 0.5;                                     ---')
+disp('---         k = 0.25;                                                              ---')
+disp('---         ump = [0 1+exp(-2) 1-3*exp(-2)];                                       ---')
+disp('---         denp = [1 -(1+exp(-2)) exp(-2)];                                       ---')
 disp('--------------------------------------------------------------------------------------')
 
 T = input('Ingrese T: '); 
@@ -23,9 +26,13 @@ k1 = kp + ki*T/2 + kd/T;
 k2 = -kp + ki/2 - 2*kd/T;
 k3 = kd/T;
 
-k = 0.25;
-nump = [0 1+exp(-2) 1-3*exp(-2)];
-denp = [1 -(1+exp(-2)) exp(-2)];
+%k = 0.25;
+%nump = [0 1+exp(-2) 1-3*exp(-2)];
+%denp = [1 -(1+exp(-2)) exp(-2)];
+
+k = input('Ingresa la constante k de la FDTD, k= ');
+nump = input('Ingresa el numerador de la planta en z numpz= ');
+denp = input('Ingresa el denominador de la planta en z denpz= ');
 
 Gz = tf(k*nump, denp, T);
 Gc = tf([k1 k2 k3], [1 -1 0], T);
