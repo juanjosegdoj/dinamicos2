@@ -29,5 +29,5 @@ while 1
         otherwise
             disp('La opción ingresada no existe, intentelo nuevamente')
     end
-    input('Pulse tecla para continuar.')
+    input('Pulse ENTER para continuar.')
 end

@@ -3,25 +3,25 @@ seleccion = -1;
 while seleccion ~= 4
     limpiar
     disp('-----------------------------------------------------------------------------')
-    disp('------------------ 4. Diseño Controladores Análogos -------------------------')
+    disp('------------------ 4. Diseno Controladores Analogos -------------------------')
     disp('-----------------------------------------------------------------------------')
     disp('--- 1. Graficar planta y planta-controlador manualmente.                  ---')
-    disp('--- 2. Diseño de controladores analgos mediante la asignación de polos.   ---')
+    disp('--- 2. Diseño de controladores analogos mediante la asignacion de polos.   ---')
     disp('--- 3. Diseño de contoladores PID, con pesos ingresado manualmente.       ---')
     disp('--- 4. Salir a MENÜ PRINCIPAL                                             ---')
     disp('-----------------------------------------------------------------------------')
-    seleccion = input('Seleccione una opción: ');
+    seleccion = input('Seleccione una opcion: ');
     if seleccion == 1
         disp('-----------------------------------------------------------------------------')
         disp('--- 1. Graficar planta y planta-controlador manualmente.                  ---')
         disp('-----------------------------------------------------------------------------')
-        nump = input('Ingrese numerado de la planta=');
-        denp = input('Ingrese denominador de la planta=');
+        nump = input('Ingrese numerado de la planta num= ');
+        denp = input('Ingrese denominador de la planta den= ');
         Gp = tf(nump, denp);
 
-        k = input('Ingrese constante del controlador=');
-        numc = input('Ingrese numerador del controlador=');
-        denc = input('Ingrese denominador del controlador=');
+        k = input('Ingrese constante del controlador k= ');
+        numc = input('Ingrese numerador del controlador num= ');
+        denc = input('Ingrese denominador del controlador den= ');
         Gc = tf(k*numc, denc);
 
         GpGc = series(Gp,Gc);
@@ -66,21 +66,28 @@ while seleccion ~= 4
             if grado == 1
                 disp('--- Control PID por asignación de polos para un stm de 1er orden           ---');
                 disp('             K                                    KpS + Ki ')
-                disp('Planta = -------- ;             controlador  =   ----------')
-                disp('          TS + 1                                      S    ')
+                disp('Planta = --------- ;             controlador  =  ----------')
+                disp('           TS + 1                                     S    ')
                 k = input('Ingresa k: ');
                 T = input('Ingresa T: ');
                 %nump = input('Ingresa el numerador de la planta en un corchete: ');
                 %denp = input('Ingresa el denominador de la planta en un corchete, incluyendo T: ');
                 denp = [T 1];
                 Gp = tf(k, denp);
-
+                disp('-------------------------------------')
+                disp('---             PLANTA            ---')
+                disp('-------------------------------------')
+                Gp
                 Wnd = 4/(Zd * tsd);
                 kp = (2 * T * Zd * Wnd -1) / k;
                 ki = (T * Wnd^2)/k;
                 numc = [kp ki];
                 denc = [1 0];
                 Gc = tf(numc, denc);
+                disp('-------------------------------------')
+                disp('---          CONTROLADOR          ---')
+                disp('-------------------------------------')
+                Gc
                 break
             elseif grado == 2
                 disp('--- Control PID por asignación de polos para un stm de 2do orden           ---');
@@ -94,6 +101,10 @@ while seleccion ~= 4
                 nump = a1;
                 denp = [1 a2 a3];
                 Gp = tf(nump, denp);
+                disp('-------------------------------------')
+                disp('---             PLANTA            ---')
+                disp('-------------------------------------')
+                Gp
 
                 Wnd = 4/(Zd*tsd);
                 Q = 5*Zd*Wnd+0.1;
@@ -104,7 +115,13 @@ while seleccion ~= 4
                 numc = [kd kp ki];
                 denc = [1 0];
                 Gc = tf(numc, denc);
+                disp('-------------------------------------')
+                disp('---          CONTROLADOR          ---')
+                disp('-------------------------------------')
+                Gc
                 break
+            else
+                disp('ERROR: No se soporta el grado ingresado, intenta con 1 o 2')
             end
         end
 
@@ -124,8 +141,8 @@ while seleccion ~= 4
         disp('-----------------------------------------------------------------------------')
         disp('--- 3. Diseño de contoladores PID, con pesos ingresado manualmente.       ---')
         disp('-----------------------------------------------------------------------------')
-        kp = input('Ingresa kp: ');
         kd = input('Ingresa kd: ');
+        kp = input('Ingresa kp: ');
         ki = input('Ingresa ki: ');
 
         PIDnum = [kd kp ki];
@@ -134,14 +151,19 @@ while seleccion ~= 4
         Gnum = input('Ingrese numerado de la planta=');
         Gden = input('Ingrese denominado de la planta=');
         Gt = tf(conv(PIDnum, Gnum), conv(PIDden, Gden));
-        t = 0:0.01:10;
+        disp('-------------------------------------')
+        disp('---          CONTROLADOR          ---')
+        disp('-------------------------------------')
+        Gt
+        
         F = feedback(Gt, 1);
+        t = 0:0.01:10;
         step(F, t)
         grid
     elseif seleccion == 4
-        disp('Saliendo ...')
+        disp('Saliendo al MENU PRINCIPAL ...')
     else
-        fprintf('No se soporta el grado ingresado, intenta de con 1 ó 2\n')
+        fprintf('ERROR: No se soporta la opcion ingresada, intenta con las opciones disponibles\n')
     end
-    input('Pulse tecla para continuar.')
+    input('Pulse ENTER para continuar.')
 end
